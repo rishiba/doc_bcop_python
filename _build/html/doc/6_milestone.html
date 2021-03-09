@@ -1,0 +1,2703 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Arrays &mdash; Basic Concepts Of Programming In C 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Numbers Again" href="7_milestone.html" />
+    <link rel="prev" title="Loops in C" href="5_milestone.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Basic Concepts Of Programming In C
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_milestone.html">Setting up your development environment.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_milestone.html">Basics of Variables, Operators and Numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_milestone.html">Decision Making 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_milestone.html">Functions in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_milestone.html">Loops in C</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Arrays</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#class-4-arrays">Class 4: Arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#asg-a0650-array-find-the-sum-of-all-the-elements-stored-in-the-array">asg_a0650 : Array - Find the sum of all the elements stored in the array?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#samples">Samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function">Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-placeholder">Function Placeholder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#asg-a2210-array-check-for-value-in-given-array">asg_a2210 : Array - Check for value in given array.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Function Placeholder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#asg-a0920-array-convert-a-number-like-123456-to-an-array-as-1-2-3-4-5-6">asg_a0920 : Array - Convert a number like 123456 to an array as { 1, 2, 3, 4, 5, 6 }.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">Function Placeholder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#asg-a0921-array-convert-a-number-like-123456-to-an-array-as-6-5-4-3-2-1">asg_a0921 : Array - Convert a number like 123456 to an array as { 6, 5, 4, 3, 2, 1 }.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id15">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">Samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id21">Function Placeholder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#asg-a0651-array-find-the-product-of-all-the-elements-stored-in-the-array">asg_a0651 : Array - Find the product of all the elements stored in the array.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id22">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id23">Samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id24">Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id28">Function Placeholder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#asg-a0652-array-find-the-maximum-and-minimum-element-of-an-array">asg_a0652 : Array - Find the maximum and minimum element of an array</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id29">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id30">Samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id31">Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id35">Function Placeholder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#asg-a0656-array-fill-an-array-with-the-multiples-of-3-then-remove-the-numbers-which-are-divisible-by-5-fill-the-empty-spaces-so-generated-with-1">asg_a0656 : Array - Fill an array with the multiples of 3, then remove the numbers which are divisible by 5. Fill the empty spaces so generated with -1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id36">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id37">Samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id38">Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id42">Function Placeholder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#asg-a2207-array-perform-sum-and-multiplication-of-multiple-elements-in-an-array">asg_a2207 : Array - Perform sum and multiplication of multiple elements in an array.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id43">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id44">Samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id45">Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id49">Function Placeholder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#asg-a2425-array-count-the-odd-numbers-in-the-even-indexes">asg_a2425 : Array - Count the odd numbers in the even indexes.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id50">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id51">Samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id52">Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id56">Function Placeholder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#asg-a0926-array-convert-a-octal-to-decimal">asg_a0926 : Array - Convert a octal to decimal.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id57">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id58">Samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id59">Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id63">Function Placeholder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#asg-a0930-array-convert-a-binary-to-decimal">asg_a0930 : Array - Convert a binary to decimal.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id64">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id65">Samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id66">Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id70">Function Placeholder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#asg-a0934-array-convert-a-octal-to-binary">asg_a0934 : Array - Convert a octal to binary.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id71">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id72">Samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id73">Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id77">Function Placeholder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#asg-a0923-array-convert-a-decimal-to-hexadecimal">asg_a0923 : Array - Convert a decimal to hexadecimal.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id78">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id79">Samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id80">Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id84">Function Placeholder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#asg-a0927-array-convert-a-hexadecimal-to-decimal">asg_a0927 : Array - Convert a hexadecimal to decimal.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id85">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id86">Samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id87">Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id91">Function Placeholder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#asg-a0925-array-convert-a-decimal-to-octal">asg_a0925 : Array - Convert a decimal to octal.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id92">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id93">Samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id94">Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id98">Function Placeholder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#asg-a0929-array-convert-a-decimal-to-binary">asg_a0929 : Array - Convert a decimal to binary.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id99">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id100">Samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id101">Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id105">Function Placeholder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#asg-a0924-array-convert-a-decimal-to-a-number-in-base-6">asg_a0924 : Array - Convert a decimal to a number in base 6.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id106">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id107">Samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id108">Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id112">Function Placeholder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#asg-a0928-array-convert-a-hexadecimal-to-octal">asg_a0928 : Array - Convert a hexadecimal to octal.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id113">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id114">Samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id115">Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id119">Function Placeholder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#asg-a0932-array-convert-a-binary-to-hexadecimal">asg_a0932 : Array - Convert a binary to hexadecimal.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id120">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id121">Samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id122">Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id126">Function Placeholder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#asg-a0664-array-write-a-program-to-find-all-the-prime-numbers-in-a-range-of-1-to-n">asg_a0664 : Array - Write a program to find all the prime numbers in a range of 1 to N.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id127">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id128">Samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id129">Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id133">Function Placeholder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#asg-a0277-loop-write-a-function-print-pattern-04-which-prints-the-pattern">asg_a0277 : Loop - Write a function <code class="docutils literal notranslate"><span class="pre">print_pattern_04()</span></code> which prints the pattern.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id134">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id135">Samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id136">Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id140">Function Placeholder</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="7_milestone.html">Numbers Again</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_milestone.html">Strings in C</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Basic Concepts Of Programming In C</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Arrays</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/doc/6_milestone.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="arrays">
+<h1>Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="class-4-arrays">
+<h2>Class 4: Arrays<a class="headerlink" href="#class-4-arrays" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="asg-a0650-array-find-the-sum-of-all-the-elements-stored-in-the-array">
+<h3>asg_a0650 : Array - Find the sum of all the elements stored in the array?<a class="headerlink" href="#asg-a0650-array-find-the-sum-of-all-the-elements-stored-in-the-array" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="description">
+<h4>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="samples">
+<h4>Samples<a class="headerlink" href="#samples" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="57%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Explanation</th>
+<th class="head">Input</th>
+<th class="head">Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>Check for a general case.</td>
+<td>HelloWorld</td>
+<td>HeLlOwOrLd</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Check for all “lowercase” characters.</td>
+<td>helloworld</td>
+<td>HeLlOwOrLd</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>Check for all “UPPERCASE” characters.</td>
+<td>HELLOWORLD</td>
+<td>HeLlOwOrLd</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="function">
+<h4>Function<a class="headerlink" href="#function" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="function-signature">
+<h5>Function Signature<a class="headerlink" href="#function-signature" title="Permalink to this headline">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">alter_case_1(input)</span></code></p>
+</div>
+<div class="section" id="function-arguments">
+<h5>Function Arguments<a class="headerlink" href="#function-arguments" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="22%" />
+<col width="10%" />
+<col width="40%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>input</td>
+<td>String to be worked upon</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="return-value">
+<h5>Return Value<a class="headerlink" href="#return-value" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="20%" />
+<col width="9%" />
+<col width="45%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>NA</td>
+<td>String with the case converted</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="function-placeholder">
+<h4>Function Placeholder<a class="headerlink" href="#function-placeholder" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">latex</span>
+</pre></div>
+</div>
+<blockquote>
+<div>clearpage</div></blockquote>
+</div>
+</div>
+<div class="section" id="asg-a2210-array-check-for-value-in-given-array">
+<h3>asg_a2210 : Array - Check for value in given array.<a class="headerlink" href="#asg-a2210-array-check-for-value-in-given-array" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h4>Description<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>Write a function <code class="docutils literal notranslate"><span class="pre">is_member()</span></code> that takes a value (i.e. a number, string, etc) x and a list of values a, and returns True if x is a member of a, False otherwise. (Note that this is exactly what the in operator does, but for the sake of the exercise you should pretend Python did not have this operator.)</p>
+</div>
+<div class="section" id="id2">
+<h4>Samples<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="46%" />
+<col width="28%" />
+<col width="13%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Explanation</th>
+<th class="head">Input</th>
+<th class="head">Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>Check if function is correst</td>
+<td>[2, [1, 2, 3, 4]]</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h4>Function<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id4">
+<h5>Function Signature<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">boolean</span> <span class="pre">is_member([ANY]</span> <span class="pre">value,</span> <span class="pre">[list</span> <span class="pre">of</span> <span class="pre">ANY]</span> <span class="pre">mylist)</span></code></p>
+</div>
+<div class="section" id="id5">
+<h5>Function Arguments<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="12%" />
+<col width="6%" />
+<col width="63%" />
+<col width="10%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>list of ANY</td>
+<td>mylist</td>
+<td>List of elements. The list can have data of multiple types.</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id6">
+<h5>Return Value<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="9%" />
+<col width="8%" />
+<col width="61%" />
+<col width="12%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>boolean</td>
+<td>NA</td>
+<td><code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> depending on the result.</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id7">
+<h4>Function Placeholder<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">latex</span>
+</pre></div>
+</div>
+<blockquote>
+<div>clearpage</div></blockquote>
+</div>
+</div>
+<div class="section" id="asg-a0920-array-convert-a-number-like-123456-to-an-array-as-1-2-3-4-5-6">
+<h3>asg_a0920 : Array - Convert a number like 123456 to an array as { 1, 2, 3, 4, 5, 6 }.<a class="headerlink" href="#asg-a0920-array-convert-a-number-like-123456-to-an-array-as-1-2-3-4-5-6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h4>Description<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<p>Write a function <code class="docutils literal notranslate"><span class="pre">convert_number_to_array()</span></code>  which takes input an integer and splits up the digits to store it into an array. Each element of the array has respective digits of the input number. The function should return the resulted array</p>
+</div>
+<div class="section" id="id9">
+<h4>Samples<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="45%" />
+<col width="13%" />
+<col width="27%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Explanation</th>
+<th class="head">Input</th>
+<th class="head">Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>Check for a general case.</td>
+<td>12345</td>
+<td>[1, 2, 3, 4, 5]</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id10">
+<h4>Function<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id11">
+<h5>Function Signature<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">alter_case_1(input)</span></code></p>
+</div>
+<div class="section" id="id12">
+<h5>Function Arguments<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="22%" />
+<col width="10%" />
+<col width="40%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>input</td>
+<td>String to be worked upon</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id13">
+<h5>Return Value<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="20%" />
+<col width="9%" />
+<col width="45%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>NA</td>
+<td>String with the case converted</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id14">
+<h4>Function Placeholder<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">latex</span>
+</pre></div>
+</div>
+<blockquote>
+<div>clearpage</div></blockquote>
+</div>
+</div>
+<div class="section" id="asg-a0921-array-convert-a-number-like-123456-to-an-array-as-6-5-4-3-2-1">
+<h3>asg_a0921 : Array - Convert a number like 123456 to an array as { 6, 5, 4, 3, 2, 1 }.<a class="headerlink" href="#asg-a0921-array-convert-a-number-like-123456-to-an-array-as-6-5-4-3-2-1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id15">
+<h4>Description<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id16">
+<h4>Samples<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="57%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Explanation</th>
+<th class="head">Input</th>
+<th class="head">Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>Check for a general case.</td>
+<td>HelloWorld</td>
+<td>HeLlOwOrLd</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Check for all “lowercase” characters.</td>
+<td>helloworld</td>
+<td>HeLlOwOrLd</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>Check for all “UPPERCASE” characters.</td>
+<td>HELLOWORLD</td>
+<td>HeLlOwOrLd</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id17">
+<h4>Function<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id18">
+<h5>Function Signature<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">alter_case_1(input)</span></code></p>
+</div>
+<div class="section" id="id19">
+<h5>Function Arguments<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="22%" />
+<col width="10%" />
+<col width="40%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>input</td>
+<td>String to be worked upon</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id20">
+<h5>Return Value<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="20%" />
+<col width="9%" />
+<col width="45%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>NA</td>
+<td>String with the case converted</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id21">
+<h4>Function Placeholder<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">latex</span>
+</pre></div>
+</div>
+<blockquote>
+<div>clearpage</div></blockquote>
+</div>
+</div>
+<div class="section" id="asg-a0651-array-find-the-product-of-all-the-elements-stored-in-the-array">
+<h3>asg_a0651 : Array - Find the product of all the elements stored in the array.<a class="headerlink" href="#asg-a0651-array-find-the-product-of-all-the-elements-stored-in-the-array" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id22">
+<h4>Description<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h4>
+<p>Write a function <code class="docutils literal notranslate"><span class="pre">product_of_array(int</span> <span class="pre">arr)</span></code> which multiplies all the elements of the array and returns the multiplied result value. The function takes an array as input. Return 0 if the array is empty.</p>
+</div>
+<div class="section" id="id23">
+<h4>Samples<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="53%" />
+<col width="22%" />
+<col width="13%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Explanation</th>
+<th class="head">Input</th>
+<th class="head">Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>Check for a general case.</td>
+<td>[10, 20, 2, 4]</td>
+<td>1600</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Check when zero as an input number</td>
+<td>[10, 20, 0, 4]</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>Check for empty array</td>
+<td>[]</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id24">
+<h4>Function<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id25">
+<h5>Function Signature<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">alter_case_1(input)</span></code></p>
+</div>
+<div class="section" id="id26">
+<h5>Function Arguments<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="22%" />
+<col width="10%" />
+<col width="40%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>input</td>
+<td>String to be worked upon</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id27">
+<h5>Return Value<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="20%" />
+<col width="9%" />
+<col width="45%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>NA</td>
+<td>String with the case converted</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id28">
+<h4>Function Placeholder<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">latex</span>
+</pre></div>
+</div>
+<blockquote>
+<div>clearpage</div></blockquote>
+</div>
+</div>
+<div class="section" id="asg-a0652-array-find-the-maximum-and-minimum-element-of-an-array">
+<h3>asg_a0652 : Array - Find the maximum and minimum element of an array<a class="headerlink" href="#asg-a0652-array-find-the-maximum-and-minimum-element-of-an-array" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id29">
+<h4>Description<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h4>
+<p>Write a function <code class="docutils literal notranslate"><span class="pre">find_min_max(int</span> <span class="pre">arr)</span></code> which returns the minimum and maximum element contained in a 1 D array. An integer array is passed as input to the function.  Return 0 if successful. If the array is empty then return -1.</p>
+</div>
+<div class="section" id="id30">
+<h4>Samples<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="49%" />
+<col width="26%" />
+<col width="13%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Explanation</th>
+<th class="head">Input</th>
+<th class="head">Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>Check for a general case.</td>
+<td>[10, 20, 2, 4]</td>
+<td>[2, 20]</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Check when zero as an input number</td>
+<td>[10, 20, 0, 4]</td>
+<td>[0, 20]</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>Check for empty array</td>
+<td>[]</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>Check for negative values</td>
+<td>[-20, -10, -5, -1]</td>
+<td>[-20, -1]</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id31">
+<h4>Function<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id32">
+<h5>Function Signature<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">alter_case_1(input)</span></code></p>
+</div>
+<div class="section" id="id33">
+<h5>Function Arguments<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="22%" />
+<col width="10%" />
+<col width="40%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>input</td>
+<td>String to be worked upon</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id34">
+<h5>Return Value<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="20%" />
+<col width="9%" />
+<col width="45%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>NA</td>
+<td>String with the case converted</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id35">
+<h4>Function Placeholder<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">latex</span>
+</pre></div>
+</div>
+<blockquote>
+<div>clearpage</div></blockquote>
+</div>
+</div>
+<div class="section" id="asg-a0656-array-fill-an-array-with-the-multiples-of-3-then-remove-the-numbers-which-are-divisible-by-5-fill-the-empty-spaces-so-generated-with-1">
+<h3>asg_a0656 : Array - Fill an array with the multiples of 3, then remove the numbers which are divisible by 5. Fill the empty spaces so generated with -1<a class="headerlink" href="#asg-a0656-array-fill-an-array-with-the-multiples-of-3-then-remove-the-numbers-which-are-divisible-by-5-fill-the-empty-spaces-so-generated-with-1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id36">
+<h4>Description<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h4>
+<p>Write a function <code class="docutils literal notranslate"><span class="pre">fill_array(int</span> <span class="pre">n)</span></code> which fills the array of n length with multiples of 3. Then remove those elements which are divisible by 5. This would leave you with few empty spaces in the array. Fill these empty spaces with -1. Return the finally generated array.</p>
+</div>
+<div class="section" id="id37">
+<h4>Samples<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="40%" />
+<col width="8%" />
+<col width="43%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Explanation</th>
+<th class="head">Input</th>
+<th class="head">Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>Check for a general case.</td>
+<td>[5]</td>
+<td>[3, 6, 9, 12, -1]</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Check when zero as an input number</td>
+<td>[10]</td>
+<td>[3, 6, 9, 12, -1, 18, 21, 24, 27, -1]</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>Check for empty array</td>
+<td>[0]</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id38">
+<h4>Function<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id39">
+<h5>Function Signature<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">alter_case_1(input)</span></code></p>
+</div>
+<div class="section" id="id40">
+<h5>Function Arguments<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="22%" />
+<col width="10%" />
+<col width="40%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>input</td>
+<td>String to be worked upon</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id41">
+<h5>Return Value<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="20%" />
+<col width="9%" />
+<col width="45%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>NA</td>
+<td>String with the case converted</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id42">
+<h4>Function Placeholder<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">latex</span>
+</pre></div>
+</div>
+<blockquote>
+<div>clearpage</div></blockquote>
+</div>
+</div>
+<div class="section" id="asg-a2207-array-perform-sum-and-multiplication-of-multiple-elements-in-an-array">
+<h3>asg_a2207 : Array - Perform sum and multiplication of multiple elements in an array.<a class="headerlink" href="#asg-a2207-array-perform-sum-and-multiplication-of-multiple-elements-in-an-array" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id43">
+<h4>Description<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h4>
+<p>Define a function <code class="docutils literal notranslate"><span class="pre">sum_and_multiply()</span></code> which multiplies the elements in an array as well as adds all the elements in an array and returns the final sum and product. Return 0 if successful. If the array is of length 0 then return -1.</p>
+</div>
+<div class="section" id="id44">
+<h4>Samples<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="49%" />
+<col width="25%" />
+<col width="19%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Explanation</th>
+<th class="head">Input</th>
+<th class="head">Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>Sum works correctly.</td>
+<td>[1, 2, 3, 4]</td>
+<td>10</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Sum works correctly for negative numbers.</td>
+<td>[1, -1, 2, -2, 4]</td>
+<td>4</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>Multiplication works correctly.</td>
+<td>[1, 2, 3, 4, 5]</td>
+<td>120</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>Multiplication works correctly for negative numbers.</td>
+<td>[1, -2, 3, 4]</td>
+<td>-24</td>
+</tr>
+<tr class="row-even"><td>5</td>
+<td>Multiplication works correctly for large numbers.</td>
+<td>[1000000, 2000000, 9000000]</td>
+<td>18000000000000000000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id45">
+<h4>Function<a class="headerlink" href="#id45" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id46">
+<h5>Function Signature<a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">mysum((list</span> <span class="pre">of</span> <span class="pre">integers)</span> <span class="pre">int_list)</span></code></p>
+</div>
+<div class="section" id="id47">
+<h5>Function Arguments<a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="21%" />
+<col width="11%" />
+<col width="46%" />
+<col width="12%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>list of integers</td>
+<td>int_list</td>
+<td>List of integers to be worked upon.</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id48">
+<h5>Return Value<a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="10%" />
+<col width="10%" />
+<col width="51%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>int</td>
+<td>NA</td>
+<td>Sum of the elements of a list.</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id49">
+<h4>Function Placeholder<a class="headerlink" href="#id49" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">latex</span>
+</pre></div>
+</div>
+<blockquote>
+<div>clearpage</div></blockquote>
+</div>
+</div>
+<div class="section" id="asg-a2425-array-count-the-odd-numbers-in-the-even-indexes">
+<h3>asg_a2425 : Array - Count the odd numbers in the even indexes.<a class="headerlink" href="#asg-a2425-array-count-the-odd-numbers-in-the-even-indexes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id50">
+<h4>Description<a class="headerlink" href="#id50" title="Permalink to this headline">¶</a></h4>
+<p>Write a function <code class="docutils literal notranslate"><span class="pre">count_odd_at_even()</span></code> which stores the odd numbers in the array in another array, and also returns the length of the returning array. If the array is of length 0 return -1, else return 0.</p>
+</div>
+<div class="section" id="id51">
+<h4>Samples<a class="headerlink" href="#id51" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="52%" />
+<col width="23%" />
+<col width="12%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Explanation</th>
+<th class="head">Input</th>
+<th class="head">Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>Check for a general case.</td>
+<td>[1, 2, 2, 4, 4]</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Check when zero as an input number</td>
+<td>[1, 2, 0, 4]</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>Check for empty array</td>
+<td>[]</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id52">
+<h4>Function<a class="headerlink" href="#id52" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id53">
+<h5>Function Signature<a class="headerlink" href="#id53" title="Permalink to this headline">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">alter_case_1(input)</span></code></p>
+</div>
+<div class="section" id="id54">
+<h5>Function Arguments<a class="headerlink" href="#id54" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="22%" />
+<col width="10%" />
+<col width="40%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>input</td>
+<td>String to be worked upon</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id55">
+<h5>Return Value<a class="headerlink" href="#id55" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="20%" />
+<col width="9%" />
+<col width="45%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>NA</td>
+<td>String with the case converted</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id56">
+<h4>Function Placeholder<a class="headerlink" href="#id56" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">latex</span>
+</pre></div>
+</div>
+<blockquote>
+<div>clearpage</div></blockquote>
+</div>
+</div>
+<div class="section" id="asg-a0926-array-convert-a-octal-to-decimal">
+<h3>asg_a0926 : Array - Convert a octal to decimal.<a class="headerlink" href="#asg-a0926-array-convert-a-octal-to-decimal" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id57">
+<h4>Description<a class="headerlink" href="#id57" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id58">
+<h4>Samples<a class="headerlink" href="#id58" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="57%" />
+<col width="13%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Explanation</th>
+<th class="head">Input</th>
+<th class="head">Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>Check if the function is proper</td>
+<td>[3]</td>
+<td>5</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Check if the function is proper</td>
+<td>[12]</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id59">
+<h4>Function<a class="headerlink" href="#id59" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id60">
+<h5>Function Signature<a class="headerlink" href="#id60" title="Permalink to this headline">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">alter_case_1(input)</span></code></p>
+</div>
+<div class="section" id="id61">
+<h5>Function Arguments<a class="headerlink" href="#id61" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="22%" />
+<col width="10%" />
+<col width="40%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>input</td>
+<td>String to be worked upon</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id62">
+<h5>Return Value<a class="headerlink" href="#id62" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="20%" />
+<col width="9%" />
+<col width="45%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>NA</td>
+<td>String with the case converted</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id63">
+<h4>Function Placeholder<a class="headerlink" href="#id63" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">latex</span>
+</pre></div>
+</div>
+<blockquote>
+<div>clearpage</div></blockquote>
+</div>
+</div>
+<div class="section" id="asg-a0930-array-convert-a-binary-to-decimal">
+<h3>asg_a0930 : Array - Convert a binary to decimal.<a class="headerlink" href="#asg-a0930-array-convert-a-binary-to-decimal" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id64">
+<h4>Description<a class="headerlink" href="#id64" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id65">
+<h4>Samples<a class="headerlink" href="#id65" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="57%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Explanation</th>
+<th class="head">Input</th>
+<th class="head">Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>Check for a general case.</td>
+<td>HelloWorld</td>
+<td>HeLlOwOrLd</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Check for all “lowercase” characters.</td>
+<td>helloworld</td>
+<td>HeLlOwOrLd</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>Check for all “UPPERCASE” characters.</td>
+<td>HELLOWORLD</td>
+<td>HeLlOwOrLd</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id66">
+<h4>Function<a class="headerlink" href="#id66" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id67">
+<h5>Function Signature<a class="headerlink" href="#id67" title="Permalink to this headline">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">alter_case_1(input)</span></code></p>
+</div>
+<div class="section" id="id68">
+<h5>Function Arguments<a class="headerlink" href="#id68" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="22%" />
+<col width="10%" />
+<col width="40%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>input</td>
+<td>String to be worked upon</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id69">
+<h5>Return Value<a class="headerlink" href="#id69" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="20%" />
+<col width="9%" />
+<col width="45%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>NA</td>
+<td>String with the case converted</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id70">
+<h4>Function Placeholder<a class="headerlink" href="#id70" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">latex</span>
+</pre></div>
+</div>
+<blockquote>
+<div>clearpage</div></blockquote>
+</div>
+</div>
+<div class="section" id="asg-a0934-array-convert-a-octal-to-binary">
+<h3>asg_a0934 : Array - Convert a octal to binary.<a class="headerlink" href="#asg-a0934-array-convert-a-octal-to-binary" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id71">
+<h4>Description<a class="headerlink" href="#id71" title="Permalink to this headline">¶</a></h4>
+<p>Write a function <code class="docutils literal notranslate"><span class="pre">convert_octal_to_binary()</span></code>.</p>
+</div>
+<div class="section" id="id72">
+<h4>Samples<a class="headerlink" href="#id72" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="57%" />
+<col width="13%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Explanation</th>
+<th class="head">Input</th>
+<th class="head">Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>Check if the function is proper</td>
+<td>[3]</td>
+<td>5</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Check if the function is proper</td>
+<td>[12]</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id73">
+<h4>Function<a class="headerlink" href="#id73" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id74">
+<h5>Function Signature<a class="headerlink" href="#id74" title="Permalink to this headline">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">alter_case_1(input)</span></code></p>
+</div>
+<div class="section" id="id75">
+<h5>Function Arguments<a class="headerlink" href="#id75" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="22%" />
+<col width="10%" />
+<col width="40%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>input</td>
+<td>String to be worked upon</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id76">
+<h5>Return Value<a class="headerlink" href="#id76" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="20%" />
+<col width="9%" />
+<col width="45%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>NA</td>
+<td>String with the case converted</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id77">
+<h4>Function Placeholder<a class="headerlink" href="#id77" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">latex</span>
+</pre></div>
+</div>
+<blockquote>
+<div>clearpage</div></blockquote>
+</div>
+</div>
+<div class="section" id="asg-a0923-array-convert-a-decimal-to-hexadecimal">
+<h3>asg_a0923 : Array - Convert a decimal to hexadecimal.<a class="headerlink" href="#asg-a0923-array-convert-a-decimal-to-hexadecimal" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id78">
+<h4>Description<a class="headerlink" href="#id78" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id79">
+<h4>Samples<a class="headerlink" href="#id79" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="57%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Explanation</th>
+<th class="head">Input</th>
+<th class="head">Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>Check for a general case.</td>
+<td>HelloWorld</td>
+<td>HeLlOwOrLd</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Check for all “lowercase” characters.</td>
+<td>helloworld</td>
+<td>HeLlOwOrLd</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>Check for all “UPPERCASE” characters.</td>
+<td>HELLOWORLD</td>
+<td>HeLlOwOrLd</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id80">
+<h4>Function<a class="headerlink" href="#id80" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id81">
+<h5>Function Signature<a class="headerlink" href="#id81" title="Permalink to this headline">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">alter_case_1(input)</span></code></p>
+</div>
+<div class="section" id="id82">
+<h5>Function Arguments<a class="headerlink" href="#id82" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="22%" />
+<col width="10%" />
+<col width="40%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>input</td>
+<td>String to be worked upon</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id83">
+<h5>Return Value<a class="headerlink" href="#id83" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="20%" />
+<col width="9%" />
+<col width="45%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>NA</td>
+<td>String with the case converted</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id84">
+<h4>Function Placeholder<a class="headerlink" href="#id84" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">latex</span>
+</pre></div>
+</div>
+<blockquote>
+<div>clearpage</div></blockquote>
+</div>
+</div>
+<div class="section" id="asg-a0927-array-convert-a-hexadecimal-to-decimal">
+<h3>asg_a0927 : Array - Convert a hexadecimal to decimal.<a class="headerlink" href="#asg-a0927-array-convert-a-hexadecimal-to-decimal" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id85">
+<h4>Description<a class="headerlink" href="#id85" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id86">
+<h4>Samples<a class="headerlink" href="#id86" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="57%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Explanation</th>
+<th class="head">Input</th>
+<th class="head">Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>Check for a general case.</td>
+<td>HelloWorld</td>
+<td>HeLlOwOrLd</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Check for all “lowercase” characters.</td>
+<td>helloworld</td>
+<td>HeLlOwOrLd</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>Check for all “UPPERCASE” characters.</td>
+<td>HELLOWORLD</td>
+<td>HeLlOwOrLd</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id87">
+<h4>Function<a class="headerlink" href="#id87" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id88">
+<h5>Function Signature<a class="headerlink" href="#id88" title="Permalink to this headline">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">alter_case_1(input)</span></code></p>
+</div>
+<div class="section" id="id89">
+<h5>Function Arguments<a class="headerlink" href="#id89" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="22%" />
+<col width="10%" />
+<col width="40%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>input</td>
+<td>String to be worked upon</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id90">
+<h5>Return Value<a class="headerlink" href="#id90" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="20%" />
+<col width="9%" />
+<col width="45%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>NA</td>
+<td>String with the case converted</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id91">
+<h4>Function Placeholder<a class="headerlink" href="#id91" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">latex</span>
+</pre></div>
+</div>
+<blockquote>
+<div>clearpage</div></blockquote>
+</div>
+</div>
+<div class="section" id="asg-a0925-array-convert-a-decimal-to-octal">
+<h3>asg_a0925 : Array - Convert a decimal to octal.<a class="headerlink" href="#asg-a0925-array-convert-a-decimal-to-octal" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id92">
+<h4>Description<a class="headerlink" href="#id92" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id93">
+<h4>Samples<a class="headerlink" href="#id93" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="57%" />
+<col width="13%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Explanation</th>
+<th class="head">Input</th>
+<th class="head">Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>Check if the function is proper</td>
+<td>[3]</td>
+<td>5</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Check if the function is proper</td>
+<td>[12]</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id94">
+<h4>Function<a class="headerlink" href="#id94" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id95">
+<h5>Function Signature<a class="headerlink" href="#id95" title="Permalink to this headline">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">alter_case_1(input)</span></code></p>
+</div>
+<div class="section" id="id96">
+<h5>Function Arguments<a class="headerlink" href="#id96" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="22%" />
+<col width="10%" />
+<col width="40%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>input</td>
+<td>String to be worked upon</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id97">
+<h5>Return Value<a class="headerlink" href="#id97" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="20%" />
+<col width="9%" />
+<col width="45%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>NA</td>
+<td>String with the case converted</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id98">
+<h4>Function Placeholder<a class="headerlink" href="#id98" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">latex</span>
+</pre></div>
+</div>
+<blockquote>
+<div>clearpage</div></blockquote>
+</div>
+</div>
+<div class="section" id="asg-a0929-array-convert-a-decimal-to-binary">
+<h3>asg_a0929 : Array - Convert a decimal to binary.<a class="headerlink" href="#asg-a0929-array-convert-a-decimal-to-binary" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id99">
+<h4>Description<a class="headerlink" href="#id99" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id100">
+<h4>Samples<a class="headerlink" href="#id100" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="57%" />
+<col width="13%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Explanation</th>
+<th class="head">Input</th>
+<th class="head">Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>Check if the function is proper</td>
+<td>[3]</td>
+<td>5</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Check if the function is proper</td>
+<td>[12]</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id101">
+<h4>Function<a class="headerlink" href="#id101" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id102">
+<h5>Function Signature<a class="headerlink" href="#id102" title="Permalink to this headline">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">alter_case_1(input)</span></code></p>
+</div>
+<div class="section" id="id103">
+<h5>Function Arguments<a class="headerlink" href="#id103" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="22%" />
+<col width="10%" />
+<col width="40%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>input</td>
+<td>String to be worked upon</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id104">
+<h5>Return Value<a class="headerlink" href="#id104" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="20%" />
+<col width="9%" />
+<col width="45%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>NA</td>
+<td>String with the case converted</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id105">
+<h4>Function Placeholder<a class="headerlink" href="#id105" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">latex</span>
+</pre></div>
+</div>
+<blockquote>
+<div>clearpage</div></blockquote>
+</div>
+</div>
+<div class="section" id="asg-a0924-array-convert-a-decimal-to-a-number-in-base-6">
+<h3>asg_a0924 : Array - Convert a decimal to a number in base 6.<a class="headerlink" href="#asg-a0924-array-convert-a-decimal-to-a-number-in-base-6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id106">
+<h4>Description<a class="headerlink" href="#id106" title="Permalink to this headline">¶</a></h4>
+<p>Write a function <code class="docutils literal notranslate"><span class="pre">convert_decimal_to_base_6()</span></code> will convert the passed number to a number represented in base 6.</p>
+</div>
+<div class="section" id="id107">
+<h4>Samples<a class="headerlink" href="#id107" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="57%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Explanation</th>
+<th class="head">Input</th>
+<th class="head">Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>Check for a general case.</td>
+<td>HelloWorld</td>
+<td>HeLlOwOrLd</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Check for all “lowercase” characters.</td>
+<td>helloworld</td>
+<td>HeLlOwOrLd</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>Check for all “UPPERCASE” characters.</td>
+<td>HELLOWORLD</td>
+<td>HeLlOwOrLd</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id108">
+<h4>Function<a class="headerlink" href="#id108" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id109">
+<h5>Function Signature<a class="headerlink" href="#id109" title="Permalink to this headline">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">alter_case_1(input)</span></code></p>
+</div>
+<div class="section" id="id110">
+<h5>Function Arguments<a class="headerlink" href="#id110" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="22%" />
+<col width="10%" />
+<col width="40%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>input</td>
+<td>String to be worked upon</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id111">
+<h5>Return Value<a class="headerlink" href="#id111" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="20%" />
+<col width="9%" />
+<col width="45%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>NA</td>
+<td>String with the case converted</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id112">
+<h4>Function Placeholder<a class="headerlink" href="#id112" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">latex</span>
+</pre></div>
+</div>
+<blockquote>
+<div>clearpage</div></blockquote>
+</div>
+</div>
+<div class="section" id="asg-a0928-array-convert-a-hexadecimal-to-octal">
+<h3>asg_a0928 : Array - Convert a hexadecimal to octal.<a class="headerlink" href="#asg-a0928-array-convert-a-hexadecimal-to-octal" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id113">
+<h4>Description<a class="headerlink" href="#id113" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id114">
+<h4>Samples<a class="headerlink" href="#id114" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="57%" />
+<col width="13%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Explanation</th>
+<th class="head">Input</th>
+<th class="head">Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>Check if the function is proper</td>
+<td>[3]</td>
+<td>5</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Check if the function is proper</td>
+<td>[12]</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id115">
+<h4>Function<a class="headerlink" href="#id115" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id116">
+<h5>Function Signature<a class="headerlink" href="#id116" title="Permalink to this headline">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">alter_case_1(input)</span></code></p>
+</div>
+<div class="section" id="id117">
+<h5>Function Arguments<a class="headerlink" href="#id117" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="22%" />
+<col width="10%" />
+<col width="40%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>input</td>
+<td>String to be worked upon</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id118">
+<h5>Return Value<a class="headerlink" href="#id118" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="20%" />
+<col width="9%" />
+<col width="45%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>NA</td>
+<td>String with the case converted</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id119">
+<h4>Function Placeholder<a class="headerlink" href="#id119" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">latex</span>
+</pre></div>
+</div>
+<blockquote>
+<div>clearpage</div></blockquote>
+</div>
+</div>
+<div class="section" id="asg-a0932-array-convert-a-binary-to-hexadecimal">
+<h3>asg_a0932 : Array - Convert a binary to hexadecimal.<a class="headerlink" href="#asg-a0932-array-convert-a-binary-to-hexadecimal" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id120">
+<h4>Description<a class="headerlink" href="#id120" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="id121">
+<h4>Samples<a class="headerlink" href="#id121" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="57%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Explanation</th>
+<th class="head">Input</th>
+<th class="head">Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>Check for a general case.</td>
+<td>HelloWorld</td>
+<td>HeLlOwOrLd</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Check for all “lowercase” characters.</td>
+<td>helloworld</td>
+<td>HeLlOwOrLd</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>Check for all “UPPERCASE” characters.</td>
+<td>HELLOWORLD</td>
+<td>HeLlOwOrLd</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id122">
+<h4>Function<a class="headerlink" href="#id122" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id123">
+<h5>Function Signature<a class="headerlink" href="#id123" title="Permalink to this headline">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">alter_case_1(input)</span></code></p>
+</div>
+<div class="section" id="id124">
+<h5>Function Arguments<a class="headerlink" href="#id124" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="22%" />
+<col width="10%" />
+<col width="40%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>input</td>
+<td>String to be worked upon</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id125">
+<h5>Return Value<a class="headerlink" href="#id125" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="20%" />
+<col width="9%" />
+<col width="45%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>NA</td>
+<td>String with the case converted</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id126">
+<h4>Function Placeholder<a class="headerlink" href="#id126" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">latex</span>
+</pre></div>
+</div>
+<blockquote>
+<div>clearpage</div></blockquote>
+</div>
+</div>
+<div class="section" id="asg-a0664-array-write-a-program-to-find-all-the-prime-numbers-in-a-range-of-1-to-n">
+<h3>asg_a0664 : Array - Write a program to find all the prime numbers in a range of 1 to N.<a class="headerlink" href="#asg-a0664-array-write-a-program-to-find-all-the-prime-numbers-in-a-range-of-1-to-n" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id127">
+<h4>Description<a class="headerlink" href="#id127" title="Permalink to this headline">¶</a></h4>
+<p>Write a function <code class="docutils literal notranslate"><span class="pre">generate_prime_numbers()</span></code> which will generate numbers from 1 to N and put it in an array. If the length of array passed is less than the numbers generated then return -1, else return 0.</p>
+</div>
+<div class="section" id="id128">
+<h4>Samples<a class="headerlink" href="#id128" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="36%" />
+<col width="19%" />
+<col width="22%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Explanation</th>
+<th class="head">Input</th>
+<th class="head">Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id129">
+<h4>Function<a class="headerlink" href="#id129" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id130">
+<h5>Function Signature<a class="headerlink" href="#id130" title="Permalink to this headline">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">alter_case_1(input)</span></code></p>
+</div>
+<div class="section" id="id131">
+<h5>Function Arguments<a class="headerlink" href="#id131" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="22%" />
+<col width="10%" />
+<col width="40%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>input</td>
+<td>String to be worked upon</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id132">
+<h5>Return Value<a class="headerlink" href="#id132" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="20%" />
+<col width="9%" />
+<col width="45%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>NA</td>
+<td>String with the case converted</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id133">
+<h4>Function Placeholder<a class="headerlink" href="#id133" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">latex</span>
+</pre></div>
+</div>
+<blockquote>
+<div>clearpage</div></blockquote>
+</div>
+</div>
+<div class="section" id="asg-a0277-loop-write-a-function-print-pattern-04-which-prints-the-pattern">
+<h3>asg_a0277 : Loop - Write a function <code class="docutils literal notranslate"><span class="pre">print_pattern_04()</span></code> which prints the pattern.<a class="headerlink" href="#asg-a0277-loop-write-a-function-print-pattern-04-which-prints-the-pattern" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id134">
+<h4>Description<a class="headerlink" href="#id134" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HELLOXHELLO</span>
+<span class="n">HELLO</span> <span class="n">HELLO</span>
+<span class="n">HELL</span>   <span class="n">ELLO</span>
+<span class="n">HEL</span>     <span class="n">LLO</span>
+<span class="n">HE</span>       <span class="n">LO</span>
+<span class="n">H</span>         <span class="n">O</span>
+<span class="n">HE</span>       <span class="n">LO</span>
+<span class="n">HEL</span>     <span class="n">LLO</span>
+<span class="n">HELL</span>   <span class="n">ELLO</span>
+<span class="n">HELLO</span> <span class="n">HELLO</span>
+<span class="n">HELLOXHELLO</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id135">
+<h4>Samples<a class="headerlink" href="#id135" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="36%" />
+<col width="19%" />
+<col width="22%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Explanation</th>
+<th class="head">Input</th>
+<th class="head">Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>#</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id136">
+<h4>Function<a class="headerlink" href="#id136" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id137">
+<h5>Function Signature<a class="headerlink" href="#id137" title="Permalink to this headline">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">alter_case_1(input)</span></code></p>
+</div>
+<div class="section" id="id138">
+<h5>Function Arguments<a class="headerlink" href="#id138" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="22%" />
+<col width="10%" />
+<col width="40%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>input</td>
+<td>String to be worked upon</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id139">
+<h5>Return Value<a class="headerlink" href="#id139" title="Permalink to this headline">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="20%" />
+<col width="9%" />
+<col width="45%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Number</th>
+<th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Remarks</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>String Object</td>
+<td>NA</td>
+<td>String with the case converted</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id140">
+<h4>Function Placeholder<a class="headerlink" href="#id140" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">latex</span>
+</pre></div>
+</div>
+<blockquote>
+<div>clearpage</div></blockquote>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="7_milestone.html" class="btn btn-neutral float-right" title="Numbers Again" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="5_milestone.html" class="btn btn-neutral float-left" title="Loops in C" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2018, Rishi Agrawal &lt;rishi.b.agrawal@gmail.com&gt;
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
